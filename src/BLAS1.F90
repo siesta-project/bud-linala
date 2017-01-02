@@ -38,7 +38,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(z,swap,1)
     module procedure BUD_BLAS(z,swap_dir,1)
     module procedure BUD_BLAS(z,swap,2)
-  end interface 
+  end interface
 
   interface scal
     module procedure BUD_BLAS(s,scal,1)
@@ -64,7 +64,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(c,copy,2)
     module procedure BUD_BLAS(z,copy,1)
     module procedure BUD_BLAS(z,copy,2)
-  end interface 
+  end interface
 
   interface axpy
     module procedure BUD_BLAS(s,axpy,1)
@@ -79,7 +79,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(z,axpy,1)
     module procedure BUD_BLAS(z,axpy_dir,1)
     module procedure BUD_BLAS(z,axpy,2)
-  end interface 
+  end interface
 
   interface dot
     module procedure BUD_BLAS(s,dot,1)
@@ -88,7 +88,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(d,dot,1)
     module procedure BUD_BLAS(d,dot_dir,1)
     module procedure BUD_BLAS(d,dot,2)
-  end interface 
+  end interface
 
   interface dotu
     module procedure BUD_BLAS(c,dotu,1)
@@ -97,7 +97,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(z,dotu,1)
     module procedure BUD_BLAS(z,dotu_dir,1)
     module procedure BUD_BLAS(z,dotu,2)
-  end interface 
+  end interface
 
   interface dotc
     module procedure BUD_BLAS(c,dotc,1)
@@ -106,7 +106,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(z,dotc,1)
     module procedure BUD_BLAS(z,dotc_dir,1)
     module procedure BUD_BLAS(z,dotc,2)
-  end interface 
+  end interface
 
   interface nrm2
     module procedure BUD_BLAS(s,nrm2,1)
@@ -121,7 +121,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(z,nrm2,1)
     module procedure BUD_BLAS(z,nrm2_dir,1)
     module procedure BUD_BLAS(z,nrm2,2)
-  end interface 
+  end interface
 
   interface asum
     module procedure BUD_BLAS(s,asum,1)
@@ -136,7 +136,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(z,asum,1)
     module procedure BUD_BLAS(z,asum_dir,1)
     module procedure BUD_BLAS(z,asum,2)
-  end interface 
+  end interface
 
 contains
 
@@ -164,7 +164,7 @@ contains
 #define BUD_BLAS_PRE d
 #define BUD_DIM 1
 #include "BLAS1.inc"
-  
+
 end module
 !> @}
 

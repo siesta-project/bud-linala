@@ -11,9 +11,9 @@
 
 !> @param[in] N size of array
 !! @param[inout] X array to swap place with Y
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 !! @param[inout] Y array to swap place with X
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,swap,BUD_DIM)(N, X, IX, Y, IY)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -30,7 +30,7 @@ end subroutine
 !> @param[in] N size of array
 !! @param[in] A the scaling factor
 !! @param[inout] X array to swap place with Y
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,scal,BUD_DIM)(N, A, X, IX)
   integer, intent(in) :: N
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC) :: A
@@ -44,9 +44,9 @@ end subroutine
 
 !> @param[in] N size of array
 !! @param[in] X array to copy into Y
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 !! @param[out] Y copied array on output
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,copy,BUD_DIM)(N, X, IX, Y, IY)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -62,9 +62,9 @@ end subroutine
 !> @param[in] N size of array
 !! @param[in] A factor on X
 !! @param[in] X array to multiply by A and add to Y
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 !! @param[inout] Y output array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,axpy,BUD_DIM)(N, A, X, IX, Y, IY)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -83,9 +83,9 @@ end subroutine
 
 !> @param[in] N size of array
 !! @param[in] X 1st array of dot-product
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 !! @param[in] Y 2nd array of dot-product
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 function BUD_BLAS(BUD_BLAS_VARP,dotu,BUD_DIM)(N, X, IX, Y, IY) result(dot)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -102,9 +102,9 @@ end function
 
 !> @param[in] N size of array
 !! @param[in] X 1st array of dot-product
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 !! @param[in] Y 2nd array of dot-product
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 function BUD_BLAS(BUD_BLAS_VARP,dotc,BUD_DIM)(N, X, IX, Y, IY) result(dot)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -125,9 +125,9 @@ end function
 
 !> @param[in] N size of array
 !! @param[in] X 1st array of dot-product
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 !! @param[in] Y 2nd array of dot-product
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 function BUD_BLAS(BUD_BLAS_VARP,dot,BUD_DIM)(N, X, IX, Y, IY) result(dot)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -146,7 +146,7 @@ end function
 
 !> @param[in] N size of array
 !! @param[in] X array to take euclidean norm of
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 function BUD_BLAS(BUD_BLAS_VARP,nrm2,BUD_DIM)(N, X, IX) result(nrm2)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X
@@ -162,7 +162,7 @@ end function
 
 !> @param[in] N size of array
 !! @param[in] X array to take absolute sum of
-!! @param[in] IX X increment 
+!! @param[in] IX X increment
 function BUD_BLAS(BUD_BLAS_VARP,asum,BUD_DIM)(N, X, IX) result(asum)
   integer, intent(in) :: N
   type(BUD_CC5(BUD_TYPE,BUD_TYPE_VARP,Array,BUD_DIM,D)), intent(inout) :: X

@@ -34,7 +34,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(c,gemv,2)
     module procedure BUD_BLAS(z,gemv,1)
     module procedure BUD_BLAS(z,gemv,2)
-  end interface 
+  end interface
 
   interface hemv
     module procedure BUD_BLAS(c,hemv,1)
@@ -84,7 +84,7 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(d,symv,1)
     module procedure BUD_BLAS(d,symv,2)
   end interface
-  
+
   interface spmv
     module procedure BUD_BLAS(s,spmv,1)
     module procedure BUD_BLAS(s,spmv,2)
@@ -135,7 +135,7 @@ contains
 #define BUD_TYPE_VARP z
 #define BUD_DIM 1
 #include "BLAS2.inc"
-  
+
 end module
 !> @}
 

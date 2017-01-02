@@ -13,10 +13,10 @@
 !! @param[in] A matrix A
 !! @param[in] LDA leading dimension of A
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[inout] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,gemv,BUD_DIM)(T, M, N, alpha, A, LDA, X, IX, beta, Y, IY)
   character(len=1), intent(in) :: T
   integer, intent(in) :: M, N, LDA
@@ -41,10 +41,10 @@ end subroutine
 !! @param[in] A matrix A
 !! @param[in] LDA leading dimension of A
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[inout] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,hemv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, beta, Y, IY)
   character(len=1), intent(in) :: UL
   integer, intent(in) :: N, LDA
@@ -69,10 +69,10 @@ end subroutine
 !! @param[in] A matrix A
 !! @param[in] LDA leading dimension of A
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[inout] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,symv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, beta, Y, IY)
   character(len=1), intent(in) :: UL
   integer, intent(in) :: N, LDA
@@ -99,10 +99,10 @@ end subroutine
 !! @param[in] A matrix A in packed format
 !! @param[in] LDA leading dimension of A
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[inout] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,hpmv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, beta, Y, IY)
   character(len=1), intent(in) :: UL
   integer, intent(in) :: N, LDA
@@ -127,10 +127,10 @@ end subroutine
 !! @param[in] A matrix A in packed format
 !! @param[in] LDA leading dimension of A
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[inout] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 subroutine BUD_BLAS(BUD_BLAS_VARP,spmv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, beta, Y, IY)
   character(len=1), intent(in) :: UL
   integer, intent(in) :: N, LDA
@@ -155,10 +155,10 @@ end subroutine
 !! @param[in] N columns of matrix A
 !! @param[in] alpha factor for multiplication
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[in] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 !! @param[inout] A matrix A
 !! @param[in] LDA leading dimension of A
 subroutine BUD_BLAS(BUD_BLAS_VARP,geru,BUD_DIM)(M, N, alpha, X, IX, Y, IY, A, LDA)
@@ -181,10 +181,10 @@ end subroutine
 !! @param[in] N columns of matrix A
 !! @param[in] alpha factor for multiplication
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[in] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 !! @param[inout] A matrix A
 !! @param[in] LDA leading dimension of A
 subroutine BUD_BLAS(BUD_BLAS_VARP,gerc,BUD_DIM)(M, N, alpha, X, IX, Y, IY, A, LDA)
@@ -208,10 +208,10 @@ end subroutine
 !! @param[in] N columns of matrix A
 !! @param[in] alpha factor for multiplication
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[in] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 !! @param[inout] A matrix A
 !! @param[in] LDA leading dimension of A
 subroutine BUD_BLAS(BUD_BLAS_VARP,ger,BUD_DIM)(M, N, alpha, X, IX, Y, IY, A, LDA)
@@ -237,10 +237,10 @@ end subroutine
 !! @param[in] N size of matrix A
 !! @param[in] alpha factor for multiplication
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[in] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 !! @param[inout] A matrix A
 !! @param[in] LDA leading dimension of A
 subroutine BUD_BLAS(BUD_BLAS_VARP,her,BUD_DIM)(UL, N, alpha, X, IX, Y, IY, A, LDA)
@@ -264,10 +264,10 @@ end subroutine
 !! @param[in] N size of matrix A
 !! @param[in] alpha factor for multiplication
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[in] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 !! @param[inout] A matrix A
 !! @param[in] LDA leading dimension of A
 subroutine BUD_BLAS(BUD_BLAS_VARP,hpr,BUD_DIM)(UL, N, alpha, X, IX, Y, IY, A, LDA)
@@ -292,10 +292,10 @@ end subroutine
 !! @param[in] N size of matrix A
 !! @param[in] alpha factor for multiplication
 !! @param[in] X vector for matrix-vector multiplication
-!! @param[in] IX X increment 
-!! @param[in] beta factor for output 
+!! @param[in] IX X increment
+!! @param[in] beta factor for output
 !! @param[in] Y matrix-vector result array
-!! @param[in] IY Y increment 
+!! @param[in] IY Y increment
 !! @param[inout] A matrix A
 !! @param[in] LDA leading dimension of A
 subroutine BUD_BLAS(BUD_BLAS_VARP,syr,BUD_DIM)(UL, N, alpha, X, IX, Y, IY, A, LDA)
@@ -325,7 +325,6 @@ end subroutine
 #if BUD_DIM == 2
 # undef BUD_DIM
 # undef BUD_BLAS_VARP
-# undef BUD_BLAS_PRE
 # undef BUD_TYPE_VAR_PREC
 # undef BUD_TYPE_VARP
 #endif
