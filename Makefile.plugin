@@ -1,0 +1,9 @@
+IS_PLUGIN := 1
+
+# Include the makefile in the source directories:
+#    ./src
+include $(TOP_DIR)/src/Makefile.inc
+
+# Local Variables:
+#  mode: makefile-gmake
+# End:
