@@ -13,6 +13,15 @@
 #define BUD_MOD_NAME BUD_CC3(BUD_MOD,_,BLAS1)
 module BUD_MOD_NAME
 
+  use BUD_CC3(BUD_MOD,_,rArray1D)
+  use BUD_CC3(BUD_MOD,_,rArray2D)
+  use BUD_CC3(BUD_MOD,_,dArray1D)
+  use BUD_CC3(BUD_MOD,_,dArray2D)
+  use BUD_CC3(BUD_MOD,_,cArray1D)
+  use BUD_CC3(BUD_MOD,_,cArray2D)
+  use BUD_CC3(BUD_MOD,_,zArray1D)
+  use BUD_CC3(BUD_MOD,_,zArray2D)
+
 #include "bud_common_declarations.inc"
 
   ! Define interfaces
@@ -24,8 +33,8 @@ module BUD_MOD_NAME
     module procedure BUD_BLAS(d,swap_dir,1)
     module procedure BUD_BLAS(d,swap,2)
     module procedure BUD_BLAS(c,swap,1)
-    module procedure BUD_BLAS(c,swap_dir,2)
-    module procedure BUD_BLAS(d,swap,2)
+    module procedure BUD_BLAS(c,swap_dir,1)
+    module procedure BUD_BLAS(c,swap,2)
     module procedure BUD_BLAS(z,swap,1)
     module procedure BUD_BLAS(z,swap_dir,1)
     module procedure BUD_BLAS(z,swap,2)
@@ -133,19 +142,13 @@ contains
 
 #define BUD_TYPE_VAR real
 #define BUD_TYPE_VAR_PREC rr_
-#define BUD_TYPE_VARP s
+#define BUD_BLAS_VARP s
+#define BUD_TYPE_VARP r
 #define BUD_DIM 1
 #include "BLAS1.inc"
-#undef BUD_DIM
-#define BUD_DIM 2
-#include "BLAS1.inc"
-#undef BUD_TYPE_VAR_PREC
-#undef BUD_TYPE_VARP
 #define BUD_TYPE_VAR_PREC rd_
 #define BUD_TYPE_VARP d
-#include "BLAS1.inc"
-#undef BUD_DIM
-#define BUD_DIM 2
+#define BUD_DIM 1
 #include "BLAS1.inc"
 
 #undef BUD_TYPE_VAR
@@ -153,17 +156,13 @@ contains
 #define BUD_TYPE_VAR complex
 #define BUD_TYPE_VAR_PREC rr_
 #define BUD_TYPE_VARP c
+#define BUD_BLAS_PRE s
+#define BUD_DIM 1
 #include "BLAS1.inc"
-#undef BUD_DIM
-#define BUD_DIM 2
-#include "BLAS1.inc"
-#undef BUD_TYPE_VAR_PREC
-#undef BUD_TYPE_VARP
 #define BUD_TYPE_VAR_PREC rd_
 #define BUD_TYPE_VARP z
-#include "BLAS1.inc"
-#undef BUD_DIM
-#define BUD_DIM 2
+#define BUD_BLAS_PRE d
+#define BUD_DIM 1
 #include "BLAS1.inc"
   
 end module

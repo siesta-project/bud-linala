@@ -17,7 +17,9 @@ bud_BLAS3.f90: BLAS3.F90 BLAS3.inc
 	$(FPP) $(FPPFLAGS) $(INCLUDES) $< > $@
 bud_BLAS.f90: BLAS.F90
 	$(FPP) $(FPPFLAGS) $(INCLUDES) $< > $@
-
+ifeq ($(IS_PLUGIN),1)
+$(BLAS_OBJECTS): bud_Array1D.o bud_Array2D.o
+endif
 
 # Define objects that needs compilation
 LA_src_SOURCES = $(patsubst %.o, %.f90, $(LA_src_OBJECTS))
