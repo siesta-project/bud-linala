@@ -31,7 +31,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,gemv,BUD_DIM)(T, M, N, alpha, A, LDA, X, IX, b
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,gemv)(T, M, N, alpha, AA, LDA, AX, IX, beta, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,gemv)(T, M, N, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AX(1), IX, beta, AY(1), IY)
 end subroutine
 
 #ifdef BUD_IS_COMPLEX
@@ -59,7 +60,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,hemv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, bet
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,hemv)(UL, N, alpha, AA, LDA, AX, IX, beta, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,hemv)(UL, N, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AX(1), IX, beta, AY(1), IY)
 end subroutine
 
 #else
@@ -87,7 +89,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,symv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, bet
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,symv)(UL, N, alpha, AA, LDA, AX, IX, beta, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,symv)(UL, N, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AX(1), IX, beta, AY(1), IY)
 end subroutine
 #endif
 
@@ -117,7 +120,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,hpmv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, bet
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,hpmv)(UL, N, alpha, AA, LDA, AX, IX, beta, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,hpmv)(UL, N, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AX(1), IX, beta, AY(1), IY)
 end subroutine
 
 #else
@@ -145,7 +149,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,spmv,BUD_DIM)(UL, N, alpha, A, LDA, X, IX, bet
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,spmv)(UL, N, alpha, AA, LDA, AX, IX, beta, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,spmv)(UL, N, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AX(1), IX, beta, AY(1), IY)
 end subroutine
 #endif
 
@@ -174,7 +179,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,geru,BUD_DIM)(M, N, alpha, X, IX, Y, IY, A, LD
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,geru)(M, N, alpha, AX, IX, AY, IY, AA, LDA)
+  call BUD_BLASX(BUD_BLAS_VARP,geru)(M, N, alpha, &
+    AX(1), IX, AY(1), IY, AA BUD_DIM_SPEC(1), LDA)
 end subroutine
 
 !> @param[in] M rows of matrix A
@@ -200,7 +206,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,gerc,BUD_DIM)(M, N, alpha, X, IX, Y, IY, A, LD
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,gerc)(M, N, alpha, AX, IX, AY, IY, AA, LDA)
+  call BUD_BLASX(BUD_BLAS_VARP,gerc)(M, N, alpha, &
+    AX(1), IX, AY(1), IY, AA BUD_DIM_SPEC(1), LDA)
 end subroutine
 
 #else
@@ -227,7 +234,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,ger,BUD_DIM)(M, N, alpha, X, IX, Y, IY, A, LDA
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,ger)(M, N, alpha, AX, IX, AY, IY, AA, LDA)
+  call BUD_BLASX(BUD_BLAS_VARP,ger)(M, N, alpha, &
+    AX(1), IX, AY(1), IY, AA BUD_DIM_SPEC(1), LDA)
 end subroutine
 #endif
 
@@ -257,7 +265,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,her,BUD_DIM)(UL, N, alpha, X, IX, Y, IY, A, LD
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,her)(UL, N, alpha, AX, IX, AY, IY, AA, LDA)
+  call BUD_BLASX(BUD_BLAS_VARP,her)(UL, N, alpha, &
+    AX(1), IX, AY(1), IY, AA BUD_DIM_SPEC(1), LDA)
 end subroutine
 
 !> @param[in] UL upper or lower part of matrix A
@@ -284,7 +293,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,hpr,BUD_DIM)(UL, N, alpha, X, IX, Y, IY, A, LD
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,hpr)(UL, N, alpha, AX, IX, AY, IY, AA, LDA)
+  call BUD_BLASX(BUD_BLAS_VARP,hpr)(UL, N, alpha, &
+    AX(1), IX, AY(1), IY, AA BUD_DIM_SPEC(1), LDA)
 end subroutine
 
 #else
@@ -312,7 +322,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,syr,BUD_DIM)(UL, N, alpha, X, IX, Y, IY, A, LD
   AA => array_p(A)
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,syr)(UL, N, alpha, AX, IX, AY, IY, AA, LDA)
+  call BUD_BLASX(BUD_BLAS_VARP,syr)(UL, N, alpha, &
+    AX(1), IX, AY(1), IY, AA BUD_DIM_SPEC(1), LDA)
 end subroutine
 #endif
 

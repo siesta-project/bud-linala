@@ -23,7 +23,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,swap,BUD_DIM)(N, X, IX, Y, IY)
 
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,swap)(N, AX, IX, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,swap)(N, AX BUD_DIM_SPEC(1), IX, AY BUD_DIM_SPEC(1), IY)
 end subroutine
 
 
@@ -39,7 +39,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,scal,BUD_DIM)(N, A, X, IX)
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC), pointer :: AX BUD_DIM_SPEC(:)
 
   AX => array_p(X)
-  call BUD_BLASX(BUD_BLAS_VARP,scal)(N, A, AX, IX)
+  call BUD_BLASX(BUD_BLAS_VARP,scal)(N, A, AX BUD_DIM_SPEC(1), IX)
 end subroutine
 
 !> @param[in] N size of array
@@ -56,7 +56,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,copy,BUD_DIM)(N, X, IX, Y, IY)
 
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,copy)(N, AX, IX, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,copy)(N, AX BUD_DIM_SPEC(1), IX, AY BUD_DIM_SPEC(1), IY)
 end subroutine
 
 !> @param[in] N size of array
@@ -75,7 +75,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,axpy,BUD_DIM)(N, A, X, IX, Y, IY)
 
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,axpy)(N, A, AX, IX, AY, IY)
+  call BUD_BLASX(BUD_BLAS_VARP,axpy)(N, A, AX BUD_DIM_SPEC(1), IX, AY BUD_DIM_SPEC(1), IY)
 end subroutine
 
 
@@ -97,7 +97,7 @@ function BUD_BLAS(BUD_BLAS_VARP,dotu,BUD_DIM)(N, X, IX, Y, IY) result(dot)
 
   AX => array_p(X)
   AY => array_p(Y)
-  dot = BUD_BLASX(BUD_BLAS_VARP,dotu)(N, AX, IX, AY, IY)
+  dot = BUD_BLASX(BUD_BLAS_VARP,dotu)(N, AX BUD_DIM_SPEC(1), IX, AY BUD_DIM_SPEC(1), IY)
 end function
 
 !> @param[in] N size of array
@@ -116,7 +116,7 @@ function BUD_BLAS(BUD_BLAS_VARP,dotc,BUD_DIM)(N, X, IX, Y, IY) result(dot)
 
   AX => array_p(X)
   AY => array_p(Y)
-  dot = BUD_BLASX(BUD_BLAS_VARP,dotc)(N, AX, IX, AY, IY)
+  dot = BUD_BLASX(BUD_BLAS_VARP,dotc)(N, AX BUD_DIM_SPEC(1), IX, AY BUD_DIM_SPEC(1), IY)
 end function
 
 
@@ -139,7 +139,7 @@ function BUD_BLAS(BUD_BLAS_VARP,dot,BUD_DIM)(N, X, IX, Y, IY) result(dot)
 
   AX => array_p(X)
   AY => array_p(Y)
-  dot = BUD_BLASX(BUD_BLAS_VARP,dot)(N, AX, IX, AY, IY)
+  dot = BUD_BLASX(BUD_BLAS_VARP,dot)(N, AX BUD_DIM_SPEC(1), IX, AY BUD_DIM_SPEC(1), IY)
 end function
 
 #endif
@@ -156,7 +156,7 @@ function BUD_BLAS(BUD_BLAS_VARP,nrm2,BUD_DIM)(N, X, IX) result(nrm2)
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC), external :: BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),nrm2)
 
   AX => array_p(X)
-  nrm2 = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),nrm2)(N, AX, IX)
+  nrm2 = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),nrm2)(N, AX BUD_DIM_SPEC(1), IX)
 end function
 
 
@@ -172,7 +172,7 @@ function BUD_BLAS(BUD_BLAS_VARP,asum,BUD_DIM)(N, X, IX) result(asum)
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC), external :: BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),asum)
 
   AX => array_p(X)
-  asum = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),asum)(N, AX, IX)
+  asum = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),asum)(N, AX BUD_DIM_SPEC(1), IX)
 end function
 
 
@@ -188,7 +188,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,swap_dir,BUD_DIM)(X, Y)
 
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,swap)(size(AX), AX, 1, AY, 1)
+  call BUD_BLASX(BUD_BLAS_VARP,swap)(size(AX), AX BUD_DIM_SPEC(1), 1, AY BUD_DIM_SPEC(1), 1)
 end subroutine
 
 !> @param[in] A the scaling factor
@@ -199,7 +199,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,scal_dir,BUD_DIM)(A, X)
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC), pointer :: AX BUD_DIM_SPEC(:)
 
   AX => array_p(X)
-  call BUD_BLASX(BUD_BLAS_VARP,scal)(size(AX), A, AX, 1)
+  call BUD_BLASX(BUD_BLAS_VARP,scal)(size(AX), A, AX BUD_DIM_SPEC(1), 1)
 end subroutine
 
 !> @param[in] A factor on X
@@ -213,7 +213,7 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,axpy_dir,BUD_DIM)(A, X, Y)
 
   AX => array_p(X)
   AY => array_p(Y)
-  call BUD_BLASX(BUD_BLAS_VARP,axpy)(size(AX), A, AX, 1, AY, 1)
+  call BUD_BLASX(BUD_BLAS_VARP,axpy)(size(AX), A, AX BUD_DIM_SPEC(1), 1, AY BUD_DIM_SPEC(1), 1)
 end subroutine
 
 # ifdef BUD_IS_COMPLEX
@@ -229,7 +229,7 @@ function BUD_BLAS(BUD_BLAS_VARP,dotu_dir,BUD_DIM)(X, Y) result(dot)
 
   AX => array_p(X)
   AY => array_p(Y)
-  dot = BUD_BLASX(BUD_BLAS_VARP,dotu)(size(AX), AX, 1, AY, 1)
+  dot = BUD_BLASX(BUD_BLAS_VARP,dotu)(size(AX), AX BUD_DIM_SPEC(1), 1, AY BUD_DIM_SPEC(1), 1)
 end function
 
 !> @param[in] X 1st array of dot-product
@@ -243,7 +243,7 @@ function BUD_BLAS(BUD_BLAS_VARP,dotc_dir,BUD_DIM)(X, Y) result(dot)
 
   AX => array_p(X)
   AY => array_p(Y)
-  dot = BUD_BLASX(BUD_BLAS_VARP,dotc)(size(AX), AX, 1, AY, 1)
+  dot = BUD_BLASX(BUD_BLAS_VARP,dotc)(size(AX), AX BUD_DIM_SPEC(1), 1, AY BUD_DIM_SPEC(1), 1)
 end function
 # else
 !> @param[in] X 1st array of dot-product
@@ -257,7 +257,7 @@ function BUD_BLAS(BUD_BLAS_VARP,dot_dir,BUD_DIM)(X, Y) result(dot)
 
   AX => array_p(X)
   AY => array_p(Y)
-  dot = BUD_BLASX(BUD_BLAS_VARP,dot)(size(AX), AX, 1, AY, 1)
+  dot = BUD_BLASX(BUD_BLAS_VARP,dot)(size(AX), AX BUD_DIM_SPEC(1), 1, AY BUD_DIM_SPEC(1), 1)
 end function
 # endif
 
@@ -269,7 +269,7 @@ function BUD_BLAS(BUD_BLAS_VARP,nrm2_dir,BUD_DIM)(X) result(nrm2)
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC), external :: BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),nrm2)
 
   AX => array_p(X)
-  nrm2 = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),nrm2)(size(AX), AX, 1)
+  nrm2 = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),nrm2)(size(AX), AX BUD_DIM_SPEC(1), 1)
 end function
 
 !> @param[in] X array to take absolute sum of
@@ -280,7 +280,7 @@ function BUD_BLAS(BUD_BLAS_VARP,asum_dir,BUD_DIM)(X) result(asum)
   BUD_TYPE_VAR(BUD_TYPE_VAR_PREC), external :: BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),asum)
 
   AX => array_p(X)
-  asum = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),asum)(size(AX), AX, 1)
+  asum = BUD_BLASX(BUD_CC2(BUD_BLAS_PRE,BUD_BLAS_VARP),asum)(size(AX), AX BUD_DIM_SPEC(1), 1)
 end function
 
 #endif

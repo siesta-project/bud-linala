@@ -31,7 +31,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,gemm,BUD_DIM)(TA, TB, M, N, K, alpha, A, LDA, 
   AA => array_p(A)
   AB => array_p(B)
   AC => array_p(C)
-  call BUD_BLASX(BUD_BLAS_VARP,gemm)(TA, TB, M, N, K, alpha, AA, LDA, AB, LDB, beta, AC, LDC)
+  call BUD_BLASX(BUD_BLAS_VARP,gemm)(TA, TB, M, N, K, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AB BUD_DIM_SPEC(1), LDB, beta, AC BUD_DIM_SPEC(1), LDC)
 end subroutine
 
 
@@ -60,7 +61,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,symm,BUD_DIM)(S, UL, M, N, K, alpha, A, LDA, B
   AA => array_p(A)
   AB => array_p(B)
   AC => array_p(C)
-  call BUD_BLASX(BUD_BLAS_VARP,symm)(S, UL, M, N, K, alpha, AA, LDA, AB, LDB, beta, AC, LDC)
+  call BUD_BLASX(BUD_BLAS_VARP,symm)(S, UL, M, N, K, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AB BUD_DIM_SPEC(1), LDB, beta, AC BUD_DIM_SPEC(1), LDC)
 end subroutine
 
 !> @param[in] UL upper-lower
@@ -83,7 +85,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,syrk,BUD_DIM)(UL, T, N, K, alpha, A, LDA, beta
 
   AA => array_p(A)
   AC => array_p(C)
-  call BUD_BLASX(BUD_BLAS_VARP,syrk)(UL, T, N, K, alpha, AA, LDA, beta, AC, LDC)
+  call BUD_BLASX(BUD_BLAS_VARP,syrk)(UL, T, N, K, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, beta, AC BUD_DIM_SPEC(1), LDC)
 end subroutine
 
 #ifdef BUD_IS_COMPLEX
@@ -112,7 +115,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,hemm,BUD_DIM)(S, UL, M, N, alpha, A, LDA, B, L
   AA => array_p(A)
   AB => array_p(B)
   AC => array_p(C)
-  call BUD_BLASX(BUD_BLAS_VARP,hemm)(S, UL, M, N, alpha, AA, LDA, AB, LDB, beta, AC, LDC)
+  call BUD_BLASX(BUD_BLAS_VARP,hemm)(S, UL, M, N, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, AB BUD_DIM_SPEC(1), LDB, beta, AC BUD_DIM_SPEC(1), LDC)
 end subroutine
 
 !> @param[in] UL upper-lower
@@ -135,7 +139,8 @@ subroutine BUD_BLAS(BUD_BLAS_VARP,herk,BUD_DIM)(UL, T, N, K, alpha, A, LDA, beta
 
   AA => array_p(A)
   AC => array_p(C)
-  call BUD_BLASX(BUD_BLAS_VARP,herk)(UL, T, N, K, alpha, AA, LDA, beta, AC, LDC)
+  call BUD_BLASX(BUD_BLAS_VARP,herk)(UL, T, N, K, alpha, &
+    AA BUD_DIM_SPEC(1), LDA, beta, AC BUD_DIM_SPEC(1), LDC)
 end subroutine
 
 #endif
